@@ -1,15 +1,5 @@
-from golang:alpine
+from scratch
 
-RUN apk add --no-cache git && \
-	apk add --no-cache mercurial
-
-ADD . /go/src/github.com/sbinet-staging/root-srv
-WORKDIR /go/src/github.com/sbinet-staging/root-srv
-
-RUN echo "foo"
-RUN go-wrapper download && \
-	go-wrapper install
-
+ADD ./root-srv /usr/bin/root-srv
 EXPOSE 8080
-
-ENTRYPOINT ["/go/bin/root-srv", "-addr", ":8080"]
+ENTRYPOINT ["/usr/bin/root-srv", "-addr", ":8080"]
