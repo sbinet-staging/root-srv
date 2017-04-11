@@ -10,6 +10,6 @@ RUN echo "foo"
 RUN go-wrapper download && \
 	go-wrapper install
 
-EXPOSE 80
+EXPOSE 8080
 
-ENTRYPOINT ["/go/bin/root-srv", "-addr", ":80"]
+ENTRYPOINT ["/go/bin/root-srv", "-addr", ":8080"]
