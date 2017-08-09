@@ -1,5 +1,9 @@
 FROM scratch
 
-COPY root-srv.exe /usr/bin/root-srv
+USER root
 
-ENTRYPOINT ["/usr/bin/root-srv", "-addr", ":8080"]
+RUN  mkdir /root/bin
+COPY root-srv.exe /root/bin/root-srv
+
+WORKDIR /root
+ENTRYPOINT ["/root/bin/root-srv", "-addr", ":8080"]
