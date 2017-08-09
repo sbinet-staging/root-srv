@@ -1,5 +1,5 @@
 ## build environment
-FROM golang as builder
+FROM golang:latest as builder
 WORKDIR /go/src/github.com/sbinet-staging/root-srv
 RUN go get -v -d go-hep.org/x/hep/rootio/cmd/root-srv/server
 COPY main.go .
