@@ -1,6 +1,8 @@
 ## build environment
 FROM golang
 WORKDIR /go/src/github.com/sbinet-staging/root-srv
+RUN go get -v -d go-hep.org/x/hep/rootio/cmd/root-srv/server
+COPY main.go .
 RUN go get -v .
 
 ## runtime environment
