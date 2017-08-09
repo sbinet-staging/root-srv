@@ -1,5 +1,5 @@
-FROM golang:latest
+FROM scratch
 
-RUN go get -v go-hep.org/x/hep/rootio/cmd/root-srv
+COPY root-srv.exe /usr/bin/root-srv
 
-ENTRYPOINT ["/go/bin/root-srv", "-addr", ":8080"]
+ENTRYPOINT ["/usr/bin/root-srv", "-addr", ":8080"]
